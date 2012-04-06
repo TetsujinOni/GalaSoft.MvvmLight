@@ -31,8 +31,8 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 [assembly: CLSCompliant(true)]
 
-////[assembly: AssemblyVersion("4.0.0.*")]
-[assembly: AssemblyFileVersion("4.0.0.0/BL0017")]
+[assembly: AssemblyVersion("4.0.0.0")]
+
 
 // FxCop
 [module: SuppressMessage("Microsoft.Naming",

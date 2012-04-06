@@ -1,0 +1,50 @@
+package {
+	name: "Galasoft.MvvmLight";
+    display-name: "MVVM Light Toolkit";
+    location: "http://coapp.org/repository/${OutputFilename}";
+    feed: "http://coapp.org/repository/packages.atom.xml";
+    publisher: "CoApp Project";
+}
+
+requires {
+	package: "CommonServiceLocator-1.0.0.0-any-1e373a58e25250cb";
+	
+	package: "microsoft.blend.sdk-4.0.0.0-any-1e373a58e25250cb";
+}
+
+metadata {
+    licenses : {
+        MIT
+    };
+    
+	description: "The MVVM Light Toolkit is a set of components helping people to get started in the Model - View - ViewModel pattern in Silverlight and WPF. It is a light and pragmatic framework that contains only the essential components needed.";
+    summary: "The MVVM Light Toolkit is a set of components helping people to get started in the Model - View - ViewModel pattern in Silverlight and WPF. It is a light and pragmatic framework that contains only the essential components needed.";
+	author-version : "V4 Win 8 Preview";
+}
+
+files[dlls] {
+    root: "..\out";
+	include: {
+        "GalaSoft.MvvmLight.WPF4.dll",
+		"GalaSoft.MvvmLight.Extras.WPF4.dll
+    };
+	
+	trim-path: minimal;
+}
+
+assemblies {
+    include : {
+      dlls
+    };
+}
+
+developer-library[dlls] {
+	reference-assemblies:
+	{
+	dlls
+	};
+    
+}
+
+
+

@@ -1,9 +1,9 @@
 #product-info {
-    product-name: "CommonServiceLocator";
-    version: "1";
-    original-source-location: "git@github.com:ericschultz/CommonServiceLocator.git";
-    original-source-website: "https://github.com/ericschultz/CommonServiceLocator";
-    license: "MSPL";
+    product-name: "GalaSoft.MvvmLight";
+    version: "V4 Beta 1";
+    original-source-location: "git@github.com:ericschultz/GalaSoft.MvvmLight.git";
+    original-source-website: "https://github.com/ericschultz/GalaSoft.MvvmLight";
+    license: "MIT";
     packager: "Eric Schultz <wwahammy@gmail.com>";
 }
 
@@ -19,7 +19,12 @@ release {
 
 test
 {
-	build-command: @"echo no tests.";
+
+	uses: release;
+	build-command: @"
+
+		mstest /testcontainer:""out\GalaSoft.MvvmLight.Test.WPF4.dll""
+	";
 }
 debug {
     // builds binaries in debug mode
@@ -55,7 +60,6 @@ sign {
 
 
 sign-binaries {
-    set : release_dir = @"main\Microsoft.Practices.ServiceLocation\bin\Release";
     
     default: false;
     
@@ -68,7 +72,7 @@ sign-binaries {
     
     build-command: @"
         REM sign files in release directory
-        simplesigner --sign --strong-name ""out\**.dll"" --certificate-path=EricTest.pfx --password=j --remember
+        simplesigner --sign --strong-name ""out\**.dll""
         
         
         REM Everything went ok!
@@ -81,15 +85,6 @@ sign-binaries {
     ";
 }
 
-package 
-{
-	default: false;
-	build-command: @"
-		cd copkg
-        autopackage coapp.devtools.autopkg  || goto failed
-        echo Done Packaging!";
-}
-
 
 anycpu {
     default: no;
@@ -97,17 +92,21 @@ anycpu {
     compiler: vc10;
     
     uses: clean;
-    set : release_dir = @"main\Microsoft.Practices.ServiceLocation\bin\Release";
     targets: { 
-        @"main\Microsoft.Practices.ServiceLocation\bin\${cfg}\Microsoft.Practices.ServiceLocation.dll",
+        @"GalaSoft.MvvmLight\GalaSoft.MvvmLight (NET4)\bin\${cfg}\GalaSoft.MvvmLight.WPF4.dll",
+		@"GalaSoft.MvvmLight\GalaSoft.MvvmLight.Extras (NET4)\bin\${cfg}\GalaSoft.MvvmLight.Extras.WPF4.dll",
+		@"GalaSoft.MvvmLight\GalaSoft.MvvmLight.Test (NET4)\bin\${cfg}\GalaSoft.MvvmLight.Test.WPF4.dll"
        
 
     };
 
     build-command: @"
-        msbuild  /p:Configuration=${cfg} ""/p:Platform=Any CPU""  ""main\Microsoft.Practices.ServiceLocation.sln"" || goto failed
+        msbuild  /p:Configuration=${cfg} ""/p:Platform=Any CPU""  ""GalaSoft.MvvmLight\GalaSoft.MvvmLight (NET4).sln"" || goto failed
     
-		xcopy /Q /D /Y  ""main\Microsoft.Practices.ServiceLocation\bin\${cfg}\Microsoft.Practices.ServiceLocation.dll""  ""out""  || goto failed
+		
+		xcopy /Q /D /Y  /I ""GalaSoft.MvvmLight\GalaSoft.MvvmLight (NET4)\bin\${cfg}\GalaSoft.MvvmLight.WPF4.dll""  ""out\""  || goto failed
+		xcopy /Q /D /Y  /I ""GalaSoft.MvvmLight\GalaSoft.MvvmLight.Extras (NET4)\bin\${cfg}\GalaSoft.MvvmLight.Extras.WPF4.dll""  ""out\""  || goto failed
+		xcopy /Q /D /Y  /I ""GalaSoft.MvvmLight\GalaSoft.MvvmLight.Test (NET4)\bin\${cfg}\GalaSoft.MvvmLight.Test.WPF4.dll""  ""out\""  || goto failed
         REM Everything went ok!
         exit /b 0
         
