@@ -34,7 +34,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.Practices.ServiceLocation, Version=1.0.0.0, Culture=neutral, PublicKeyToken=1e373a58e25250cb, processorArchitecture=MSIL">
-      <HintPath>..\..\..\..\..\..\ProgramData\ReferenceAssemblies\any\CommonServiceLocator-1.0.0.0\Microsoft.Practices.ServiceLocation.dll</HintPath>
+      <HintPath>..\..\..\..\..\..\..\ProgramData\ReferenceAssemblies\any\Microsoft.Practices.ServiceLocation.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.VisualStudio.QualityTools.UnitTestFramework, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
     <Reference Include="PresentationCore" />
@@ -44,7 +44,7 @@
       <RequiredTargetFramework>3.5</RequiredTargetFramework>
     </Reference>
     <Reference Include="System.Windows.Interactivity, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\..\..\..\..\..\ProgramData\ReferenceAssemblies\any\System.Windows.Interactivity.dll</HintPath>
+      <HintPath>..\..\..\..\..\..\..\ProgramData\ReferenceAssemblies\any\System.Windows.Interactivity.dll</HintPath>
     </Reference>
     <Reference Include="System.Xaml" />
     <Reference Include="WindowsBase" />
