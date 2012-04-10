@@ -91,8 +91,7 @@ anycpu {
     platform : x86;
     compiler: vc10;
     requires: "CommonServiceLocator-1-any-1e373a58e25250cb";
-	//this one can be the full four part version as we will never have any other version
-	requires: ""microsoft.blend.sdk-4.0.0.0-any-1e373a58e25250cb";
+	requires: "microsoft.blend.sdk-4.0.0-any-1e373a58e25250cb";
     uses: clean;
     targets: { 
         @"GalaSoft.MvvmLight\GalaSoft.MvvmLight (NET4)\bin\${cfg}\GalaSoft.MvvmLight.WPF4.dll",
