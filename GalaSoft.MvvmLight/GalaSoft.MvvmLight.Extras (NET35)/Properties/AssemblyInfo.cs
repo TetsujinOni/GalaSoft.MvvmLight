@@ -34,7 +34,7 @@ using System.Windows.Markup;
 [assembly: ComVisible(false)]
 [assembly: CLSCompliant(true)]
 
-[assembly: AssemblyVersion("4.0.0.0")]
+[assembly: AssemblyVersion("4.0.0.1")]
 
 
 // FxCop
